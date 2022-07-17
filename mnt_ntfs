@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+{
+    echo "Usage: $0 [volume_name]"
+    exit 0x1
+}
+fi
+
+vol_path="/Volumes/$1"
+
+dev=$(diskutil unmount $1 | cut -d ' ' -f 4)
+if [ $? -ne 0 ]; then
+{
+    echo "Volume $1 Hasn't Been Mounted!"
+    exit 0x2
+}
+fi
+dev_path="/dev/$dev"
+
+mkdir $vol_path && mount -t ntfs -o rw,auto,nobrowse $dev_path $vol_path && open $vol_path
