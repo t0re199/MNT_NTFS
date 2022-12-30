@@ -1,6 +1,6 @@
 # README #
 
-This is a simple bash script to mount ntfs external drive on Mac Os.   
+This is a simple bash script to mount ntfs external drives on Mac Os.   
 Once mounted, both **R & W** are allowed.   
 Device will be mounted under /Volumes/\[volume_name\]
 
